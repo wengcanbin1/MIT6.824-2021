@@ -19,6 +19,7 @@ import "sync"
 // (much more than the paper's range of timeouts).
 const RaftElectionTimeout = 1000 * time.Millisecond
 
+/*测试启动后Raft集群是否能够选出一个leader，并检查在网络稳定的情况，也就是不应该发生心跳信号等待超时的情况下，是否能保持原来的leader和term状态不变。*/
 func TestInitialElection2A(t *testing.T) {
 	servers := 3
 	cfg := make_config(t, servers, false, false)
